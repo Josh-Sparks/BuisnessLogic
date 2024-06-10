@@ -171,12 +171,12 @@ startup_test() ->
 
 package_transfer_test()->
     {setup,
-    fun() -> %this setup fun is run once befor the tests are run. If you want setup and teardown to run for each test, change {setup to {foreach
+    fun() -> %this setup fun is run once befor the tests are run.
         meck:new(db_api),
         meck:expect(db_api, put_friends_for, fun(Key,Names,PID) -> worked end)
     
     end,
-    fun(_) ->%This is the teardown fun. Notice it takes one, ignored in this example, parameter.
+    fun(_) ->%This is the teardown fun.
         meck:unload(db_api)
     end,
     [%Package Transfer Test
@@ -193,12 +193,12 @@ package_transfer_test()->
   
 delivered_test()->
     {setup,
-    fun() -> %this setup fun is run once befor the tests are run. If you want setup and teardown to run for each test, change {setup to {foreach
+    fun() -> %this setup fun is run once befor the tests are run.
        meck:new(db_api),
        meck:expect(db_api, put_friends_for, fun(Key,Names,PID) -> worked end)
        
     end,
-    fun(_) ->%This is the teardown fun. Notice it takes one, ignored in this example, parameter.
+    fun(_) ->%This is the teardown fun.
        meck:unload(db_api)
     end,
     [%Delievered Test
@@ -209,12 +209,12 @@ delivered_test()->
 
 request_test()->
     {setup,
-    fun() -> %this setup fun is run once befor the tests are run. If you want setup and teardown to run for each test, change {setup to {foreach
+    fun() -> %this setup fun
        meck:new(db_api),
        meck:expect(db_api, put_friends_for, fun(Key,Names,PID) -> worked end)
        
     end,
-    fun(_) ->%This is the teardown fun. Notice it takes one, ignored in this example, parameter.
+    fun(_) ->%This is the teardown fun.
        meck:unload(db_api)
     end,
     [%Request Test
@@ -225,12 +225,12 @@ request_test()->
 
 location_test()->
     {setup,
-    fun() -> %this setup fun is run once befor the tests are run. If you want setup and teardown to run for each test, change {setup to {foreach
+    fun() -> %this setup function
         meck:new(db_api),
         meck:expect(db_api, put_friends_for, fun(Key,Names,PID) -> worked end)
         
     end,
-    fun(_) ->%This is the teardown fun. Notice it takes one, ignored in this example, parameter.
+    fun(_) ->%This is the teardown fun.
         meck:unload(db_api)
     end,
     [%Update Test
