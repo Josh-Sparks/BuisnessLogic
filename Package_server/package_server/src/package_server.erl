@@ -163,13 +163,13 @@ code_change(_OldVsn, State, _Extra) ->
 -include_lib("eunit/include/eunit.hrl").
 
 %Startup Test
-startup_test() ->
+startup_test_() ->
     {[
         ?_assertEqual(ok,package_server:start())
     ]}.
 
 
-package_transfer_test()->
+package_transfer_test_()->
     {setup,
     fun() -> %this setup fun is run once befor the tests are run.
         meck:new(db_api),
@@ -191,7 +191,7 @@ package_transfer_test()->
     
     ]}.
   
-delivered_test()->
+delivered_test_()->
     {setup,
     fun() -> %this setup fun is run once befor the tests are run.
        meck:new(db_api),
@@ -207,7 +207,7 @@ delivered_test()->
     ?_assertEqual({reply, fail, some_Db_PID}, package_server:handle_call({delivered, undefined}, some_from_pid, some_Db_PID))
 ]}.
 
-request_test()->
+request_test_()->
     {setup,
     fun() -> %this setup fun
        meck:new(db_api),
@@ -223,7 +223,7 @@ request_test()->
         ?_assertEqual({reply, fail, some_Db_PID}, package_server:handle_call({location_request, undefined}, some_from_pid, some_Db_PID))
     ]}.
 
-location_test()->
+location_test_()->
     {setup,
     fun() -> %this setup function
         meck:new(db_api),
